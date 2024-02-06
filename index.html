@@ -5,20 +5,37 @@
 	<meta charset="UTF-8">
 	<title>inwater</title>
 	<style>
+*{margin: 0;}
+html,body {width: 100%; height: 100%;}
+/*fix: silly mistake removed where body was being referred to as a class rather than element*/
+.homepage {width: 100%; height: 100%;}
 .back {
+	
 	z-index: 1;
-    position: absolute;
-	top:0in;
-	left:0in;
-			  height: 11in;
-			  width: 8.5in;
-			  background-image: url(images/pondback.png);
-			  background-size: 8.5in 11in;
+    position: fixed;
+/*fix: removed positioning properties top 0 and left 0 from .back in order to get it to center properly as a flex item of .homepage*/
+			  height: 100%;
+			  width: 100%;
+			 /* background-image: url(images/pondback.png); */
+			  background-image: url(images/back.png); 
+			  background-size: 100% 100%;
 			  background-repeat: no-repeat;
+/*fix: made .back and its background img fixed position with 100% fill, removing flex display type of its container "hompage" as this move made that redundant
+TODO: need to clear out any unecessary code left and clean this CSS up*/
+
+			  display: flex; 
+			  align-items: center;
+			  justify-content: center;
 }
+
+.pond {
+	z-index: 2;
+/*TODO: get .pond to always be centered in .back, and get the .s# stones to always stay in their proper position and size within .pond*/
+}
+
 .s1 {
 	
-    z-index: 3;
+    z-index: 4;
     position: absolute;
 	top:5.125in;
 	left:1.375in;
@@ -32,7 +49,7 @@
 }
 
 .s2 {
-	z-index: 4;
+	z-index: 5;
     position: absolute;
 	top: 6in;
 	left: 1.375in;
@@ -46,7 +63,7 @@
 			  
 }
 .s3 {
-	z-index: 5;
+	z-index: 6;
     position: absolute;
 	top: 4.5in;
 	left: 2.825in;
@@ -58,7 +75,7 @@
 			  background-size: 100% 100%;
 }
 .s4 {
-	z-index: 6;
+	z-index: 7;
     position: absolute;
 	top: 2.5in;
 	left: 4.375in;
@@ -72,7 +89,7 @@
 			
 }
 .s5 {
-	z-index: 7;
+	z-index: 8;
     position: absolute;
 	top: 4.5in;
 	left: 5.825in;
@@ -83,19 +100,16 @@
 			  background-size: 100% 100%;
 			  
 }
-/*		
-}
-.pondback {
-	height: 100%;
-	width: 100%;
-  z-index: 2;
-}
-*/
+
 	</style>
 </head>
 
 <body>
+
+<div class="homepage">
 	<div class="back">
+		<div class="pond">
+			
 		<div class="s1">
 			samurai champloo
 			deez nutes
@@ -120,10 +134,9 @@
 			deez nutes
 			</div>
 
-	<!--<div class="pondback">
-			<img src="images/pondback.png">
-			</div>	-->
+		</div>
 	</div>
+</div>
 </body>
 
 </html>
